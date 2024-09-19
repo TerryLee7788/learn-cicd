@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
+  // output: "export",
   basePath: "/learn-cicd",
   assetPrefix: "/learn-cicd/",
   reactStrictMode: true,
