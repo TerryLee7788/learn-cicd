@@ -44,7 +44,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      API_URL: ${{ github.env.API_URL }}
+      API_URL: ${{ vars.API_URL }}
       NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
     steps:
       - name: Checkout
@@ -91,6 +91,8 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Debug - Print NEXT_PUBLIC_API_URL
+        run: echo "NEXT_PUBLIC_API_URL = $NEXT_PUBLIC_API_URL"
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
         env:
