@@ -1,7 +1,7 @@
 import { type TodoSchema } from "@/lib/zod";
 
 const apiBasePath = process.env.NODE_ENV === "production" ? "/learn-cicd" : "";
-const todoUrl = `${apiBasePath}/api/todos`;
+export const todoUrl = `${apiBasePath}/api/todos`;
 
 export const createTodoApi = (data: TodoSchema) =>
   fetch(todoUrl, {
