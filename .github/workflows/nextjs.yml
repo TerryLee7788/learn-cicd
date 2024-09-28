@@ -47,6 +47,7 @@ jobs:
     env:
       API_URL: ${{ vars.API_URL }}
       NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
+      NODE_ENV: ${{ vars.NODE_ENV }}
       DATABASE_URL: ${{secrets.DATABASE_URL}}
     steps:
       - name: Checkout
@@ -54,8 +55,6 @@ jobs:
 
       - name: Debug - Print all environment variables
         run: env
-      - name: Debug - Print specific environment variable
-        run: echo "NEXT_PUBLIC_API_URL = ${{ vars.NEXT_PUBLIC_API_URL }}"
 
       - name: Detect package manager
         id: detect-package-manager
