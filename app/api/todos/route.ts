@@ -19,11 +19,6 @@ export async function GET() {
   }
 }
 
-const delay: (t?: number) => Promise<unknown> = (t = 1000) =>
-  new Promise((resolve) => {
-    setTimeout(resolve, t);
-  });
-
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
