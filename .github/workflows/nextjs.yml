@@ -97,9 +97,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
-        run: |
-          ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
-          npm install --save-dev eslint @testing-library/jest-dom
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Debug - Print NEXT_PUBLIC_API_URL
         run: echo "NEXT_PUBLIC_API_URL = $NEXT_PUBLIC_API_URL"
       - name: Build with Next.js
