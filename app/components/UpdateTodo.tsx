@@ -20,6 +20,7 @@ import { useForm } from "react-hook-form";
 import { todoSchema, type TodoSchema } from "@/lib/zod";
 import { Todo } from "@prisma/client";
 import { Pencil1Icon } from "@radix-ui/react-icons";
+import { updateTodoApi } from "@/lib/todoApi";
 
 const defaultValues = {
   title: "",
@@ -39,14 +40,7 @@ export default function UpdateTodo({ todo }: { todo: Todo }) {
     console.log(data);
     setIsSubmitting(true);
     try {
-      // await createTodoMutation.mutateAsync(data);
-      const res = await fetch("/api/todos", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ...data, id: todo.id }),
-      });
+      const res = await updateTodoApi({ data, id: todo.id });
       if (!res.ok) {
         throw new Error("Failed to update todo");
       }

@@ -17,6 +17,7 @@ import TodoForm from "./TodoForm";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { todoSchema, type TodoSchema } from "@/lib/zod";
+import { createTodoApi } from "@/lib/todoApi";
 
 const defaultValues = {
   title: "",
@@ -36,14 +37,7 @@ export default function CreateTodo() {
     console.log(data);
     setIsSubmitting(true);
     try {
-      // await createTodoMutation.mutateAsync(data);
-      const res = await fetch("/api/todos", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      const res = await createTodoApi(data);
       if (!res.ok) {
         throw new Error("Failed to create todo");
       }

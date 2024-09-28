@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it } from "@jest/globals";
 import Header from "./Header";
 import "@testing-library/jest-dom";
 

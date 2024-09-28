@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Loading from "./Loading";
 import { Todo } from "@prisma/client";
 import useSWR from "swr";
-import DeleteTodo from "./DeletTodo";
+import DeleteTodo from "./DeleteTodo";
 import UpdateTodo from "./UpdateTodo";
 import { CheckIcon } from "@radix-ui/react-icons";
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
