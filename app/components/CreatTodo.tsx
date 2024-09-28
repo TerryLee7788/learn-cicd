@@ -18,6 +18,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { todoSchema, type TodoSchema } from "@/lib/zod";
 import { createTodoApi } from "@/lib/todoApi";
+import { todoUrl } from "@/lib/todoApi";
 
 const defaultValues = {
   title: "",
@@ -43,7 +44,7 @@ export default function CreateTodo() {
       }
       form.reset();
       setDialogOpen(false);
-      mutate("/api/todos");
+      mutate(todoUrl);
     } catch (error) {
       console.error(error);
       const message =

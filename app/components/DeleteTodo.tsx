@@ -2,13 +2,14 @@ import { TrashIcon } from "@radix-ui/react-icons";
 import { Button } from "./ui/button";
 import { mutate } from "swr";
 import { deleteTodoApi } from "@/lib/todoApi";
+import { todoUrl } from "@/lib/todoApi";
 
 export default function DeleteTodo({ id }: { id: string }) {
   const handleDelete = async () => {
     const res = await deleteTodoApi(id);
     if (res.ok) {
       console.log("Todo delete successfully");
-      mutate("/api/todos");
+      mutate(todoUrl);
     }
   };
   return (

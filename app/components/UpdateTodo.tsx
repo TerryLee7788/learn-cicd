@@ -21,6 +21,7 @@ import { todoSchema, type TodoSchema } from "@/lib/zod";
 import { Todo } from "@prisma/client";
 import { Pencil1Icon } from "@radix-ui/react-icons";
 import { updateTodoApi } from "@/lib/todoApi";
+import { todoUrl } from "@/lib/todoApi";
 
 const defaultValues = {
   title: "",
@@ -47,7 +48,7 @@ export default function UpdateTodo({ todo }: { todo: Todo }) {
       form.reset();
       setErrorMessage("");
       setDialogOpen(false);
-      mutate("/api/todos");
+      mutate(todoUrl);
     } catch (error) {
       console.error(error);
       const message =

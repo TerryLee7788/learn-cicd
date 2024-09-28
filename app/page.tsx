@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
-import TodoList from "./components/TodoList";
-import CreateTodo from "./components/CreatTodo";
-import { todoUrl } from "./lib/todoApi";
+import TodoList from "@/components/TodoList";
+import CreateTodo from "@/components/CreatTodo";
+import { todoUrl } from "@/lib/todoApi";
 
 export default function Home() {
   return (

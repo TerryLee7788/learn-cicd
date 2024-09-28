@@ -9,9 +9,10 @@ import UpdateTodo from "./UpdateTodo";
 import { CheckIcon } from "@radix-ui/react-icons";
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 import { cn } from "@/lib/utils";
+import { todoUrl } from "@/lib/todoApi";
 
 export default function TodoList() {
-  const { data, error, isLoading } = useSWR<Todo[]>("/api/todos", fetcher);
+  const { data, error, isLoading } = useSWR<Todo[]>(todoUrl, fetcher);
   const todoList = data || [];
 
   if (isLoading) return <Loading />;
